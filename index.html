@@ -2,15 +2,52 @@
 <html>
 <head>
     <title>Not eDating Ryan</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <div class="container">
-    <h1>Are you guys dumb im NOT FUCING EDATING RYAN FFS</h1>
-    <p>we only have send a couple thousend messages and have know each other for a couple of years now.</p>
-    <p>we are just friends and nothing more.</p>
-    <p>so stop asking me if im edating ryan.</p>
-    <p>this page is still WIP cause linux is fucking me over rn or im just stupid prob the last one</p>
+        <h1>Are you guys dumb im NOT FUCING EDATING RYAN FFS</h1>
+        <p>We have only sent a couple thousand messages and have known each other for a couple of years now.</p>
+        <p>We are just friends and nothing more.</p>
+        <p>So stop asking me if I'm edating Ryan.</p>
+        <p>This page is still WIP because Linux is causing issues right now, or I'm just stupid, probably the last one.</p>
+
+        <h1>So im i edting ryan?</h1>
+        <button id="yesButton">Yes</button>
+        <button id="noButton">No</button>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        var haspressed = false;
+        $(document).ready(function () {
+            $('#yesButton').click(function () {
+                // Replace button with text that says "you are wrong"
+                $('#yesButton').replaceWith('<p id="wrong">You are wrong, Please press the other button thank you!</p>');
+                haspressed = true;
+            });
+
+            $('#noButton').click(function () {
+                //chekck if haspressed is true
+                if (haspressed == true) {
+                    //if it is, replace yes button with text that says "you are wrong"
+                    $('#noButton').replaceWith('<p id="correct">OK see you could have just pressed this button the first time and i would be much happier.</p>');
+                    $('#yesButton').replaceWith('');
+                    $('#wrong').replaceWith('');
+                
+                }
+                
+                if (haspressed == false) {
+                    
+                    //if it isn't, replace yes button with text that says "you are wrong"
+                    $('#noButton').replaceWith('<p id="correct">Yeah i knew i could count on you picking the right option</p>');
+                    $('#yesButton').replaceWith('');
+                    $('#wrong').replaceWith('');
+                    console.log("yes");
+                }
+
+            });
+        });
+    </script>
 </body>
 </html>

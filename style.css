@@ -1,0 +1,35 @@
+body {
+    background-color: #1e1e1e; /* Dark background color */
+    color: #ffffff; /* Light text color */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    max-width: 800px;
+    padding: 20px;
+}
+
+h1 {
+    color: #ff9900; /* Orange header text color */
+}
+
+
+button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+/* Additional CSS styles can be added as needed for your dark mode design. */
