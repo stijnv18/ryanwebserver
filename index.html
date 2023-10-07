@@ -1,53 +1,42 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Not eDating Ryan</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Are you guys dumb im NOT FUCING EDATING RYAN FFS</h1>
-        <p>We have only sent a couple thousand messages and have known each other for a couple of years now.</p>
-        <p>We are just friends and nothing more.</p>
-        <p>So stop asking me if I'm edating Ryan.</p>
-        <p>This page is still WIP because Linux is causing issues right now, or I'm just stupid, probably the last one.</p>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    var haspressed = false;
 
-        <h1>So im i edting ryan?</h1>
-        <button id="yesButton">Yes</button>
-        <button id="noButton">No</button>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        var haspressed = false;
-        $(document).ready(function () {
-            $('#yesButton').click(function () {
-                // Replace button with text that says "you are wrong"
-                $('#yesButton').replaceWith('<p id="wrong">You are wrong, Please press the other button thank you!</p>');
-                haspressed = true;
-            });
-
-            $('#noButton').click(function () {
-                //chekck if haspressed is true
-                if (haspressed == true) {
-                    //if it is, replace yes button with text that says "you are wrong"
-                    $('#noButton').replaceWith('<p id="correct">OK see you could have just pressed this button the first time and i would be much happier.</p>');
-                    $('#yesButton').replaceWith('');
-                    $('#wrong').replaceWith('');
-                
+    $(document).ready(function () {
+        $('#yesButton').click(function () {
+            // Make an AJAX POST request to the server with the answer "yes"
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:3000/",
+                headers: { "answer": "yes" }, // Send the answer as a header
+                success: function () {
+                    $('#yesButton').replaceWith('<p id="wrong">You are wrong, Please press the other button thank you!</p>');
+                    haspressed = true;
                 }
-                
-                if (haspressed == false) {
-                    
-                    //if it isn't, replace yes button with text that says "you are wrong"
-                    $('#noButton').replaceWith('<p id="correct">Yeah i knew i could count on you picking the right option</p>');
-                    $('#yesButton').replaceWith('');
-                    $('#wrong').replaceWith('');
-                    console.log("yes");
-                }
-
             });
         });
-    </script>
-</body>
-</html>
+
+        $('#noButton').click(function () {
+            // Make an AJAX POST request to the server with the answer "no"
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:3000/",
+                headers: { "answer": "no" }, // Send the answer as a header
+                success: function () {
+                    if (haspressed == true) {
+                        $('#noButton').replaceWith('<p id="correct">OK see you could have just pressed this button the first time and I would be much happier.</p>');
+                        $('#yesButton').replaceWith('');
+                        $('#wrong').replaceWith('');
+                    }
+                    
+                    if (haspressed == false) {
+                        $('#noButton').replaceWith('<p id="correct">Yeah, I knew I could count on you picking the right option</p>');
+                        $('#yesButton').replaceWith('');
+                        $('#wrong').replaceWith('');
+                        console.log("yes");
+                    }
+                }
+            });
+        });
+    });
+</script>
