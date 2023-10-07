@@ -16,7 +16,7 @@
         <button id="yesButton">Yes</button>
         <button id="noButton">No</button>
     </div>
-    <iframe id="responseFrame" src="http://localhost:3000/" style="width: 100%; height: 200px; border: none;"></iframe>
+    <iframe id="responseFrame" src="http://imnotedaingryan.online:3000/" style="width: 100%; height: 200px; border: none;"></iframe>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     var haspressed = false;
@@ -26,7 +26,7 @@
             // Make an AJAX POST request to the server with the answer "yes"
             $.ajax({
                 type: "POST",
-                url: "http://localhost:3000/",
+                url: "http://imnotedaingryan.online:3000/",
                 headers: { "answer": "yes" }, // Send the answer as a header
                 success: function () {
                     $('#yesButton').replaceWith('<p id="wrong">You are wrong, Please press the other button thank you!</p>');
@@ -39,7 +39,7 @@
             // Make an AJAX POST request to the server with the answer "no"
             $.ajax({
                 type: "POST",
-                url: "http://localhost:3000/",
+                url: "http://imnotedaingryan.online:3000/",
                 headers: { "answer": "no" }, // Send the answer as a header
                 success: function () {
                     if (haspressed == true) {
